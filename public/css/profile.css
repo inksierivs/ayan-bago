@@ -1,0 +1,114 @@
+/* profile.css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .main-container {
+    margin: 2rem;
+  }
+  
+  .page-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-info {
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-info h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  .profile-info p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .edit-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .edit-btn:hover {
+    background-color: #2563eb;
+  }
+  
+  .modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(107, 114, 128, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    width: 24rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .modal-content label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+  
+  .modal-content input,
+  .modal-content select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+  
+  .cancel-btn,
+  .save-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: #6b7280;
+  }
+  
+  .save-btn {
+    background-color: #3b82f6;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #4b5563;
+  }
+  
+  .save-btn:hover {
+    background-color: #2563eb;
+  }
+  

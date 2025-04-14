@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="icon" type="image/png" href="pics/WYA-logo.png" />
+  <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+
+  <img src="pics/WYA-logo.png" alt="WYA Logo" class="logo">
+
+  <div class="login-container">
+      <h2>Sign Up</h2>
+
+    <label for="email">Domain Email</label>
+    <input type="text" id="email" placeholder="Enter your email" />
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" placeholder="Enter your first name" />
+    
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" placeholder="Enter your last name" />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password" />
+
+    <label for="password-confirm">Confirm Password</label>
+    <input type="password" id="password-confirm" placeholder="Confirm your password" />
+
+    <button id="signup-button">Create Account</button>
+    <a href="login.html">Already have an account? <br>Log in</a>
+  </div>
+
+  <script type="module">
+    import { signupUser } from './js/firebase-auth.js';
+
+    document.getElementById("signup-button").addEventListener("click", signupUser);
+  </script>
+</body>
+</html>

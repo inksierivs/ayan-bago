@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class</title>
+  <link rel="icon" type="image/png" href="pics/WYA-logo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/class-management.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <button onclick="toggleSidebar()">✖</button>
+    <ul>
+      <li><a class="fa fa-dashboard" href="dashboard.html">Dashboard</a></li>
+      <li><a class="fas fa-chalkboard" href="class-management.html">Classes</a></li>
+      <li><a class="fa fa-file" href="pdf.html">Generate PDF</a></li>
+      <li><a class="fa fa-user" href="profile.html">Profile</a></li>
+      <button id="logoutButton" class="logout-btn">Log Out</button>
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <button onclick="toggleSidebar()" class="menu-btn">☰</button>
+    <h1 id="classHeader"> </h1>
+
+
+  </div>
+
+  <div class="main-container">
+    <div class="info-header">
+      <p><strong>Event:</strong> Regular Class</p>
+      <p><strong>Subject:</strong> <span id="subjectName"></span></p>
+      <p><strong>Class Code:</strong> <span id="classCode"></span></p>
+      <p><strong>Schedule:</strong> <span id="schedule"></span></p>
+    </div>
+
+    
+      <div class="attendance-summary">
+        <div class="summary-box present">
+          <h3>Present</h3>
+          <p>32</p>
+        </div>
+        <div class="summary-box absent">
+          <h3>Absent</h3>
+          <p>3</p>
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="section-title">Class List</h2>
+    <div class="student-table-container">
+      <table class="student-table">
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Student">Alice Smith</td>
+            <td data-label="Location">Room 101</td>
+            <td data-label="Status" class="status present">Present</td>
+            <td data-label="Time">09:05 AM</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    
+  </div>
+
+  <script type="module" src="js/class-view.js"></script>
+  <script src="./js/scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="icon" type="image/png" href="pics/WYA-logo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <button onclick="toggleSidebar()">✖</button>
+    <ul>
+      <li><a class="fa fa-dashboard" href="dashboard.html">Dashboard</a></li>
+      <li><a class="fas fa-chalkboard" href="class-management.html">Classes</a></li>
+      <li><a class="fa fa-file" href="qr-scan.html">scan qr eme PDF</a></li>
+      <li><a class="fa fa-user" href="profile.html">Profile</a></li>
+
+      <button id="logoutButton" onclick="logoutUser()" class="logout-btn">
+        Log Out
+      </button>
+      
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <button onclick="toggleSidebar()" class="menu-btn">☰</button>
+    <h1>Admin Dashboard</h1>
+  </div>
+
+  <h1>Welcome, <span id="firstName"></span> <span id="lastName"></span>!</h1>
+  <p>Your email is: <span id="email"></span></p>
+
+  <!-- Main content -->
+  <div class="main">
+    <div class="card-container">
+      <div class="card">
+        <h2>0</h2>
+        <p>Presents</p>
+      </div>
+      <div class="card">
+        <h2>0</h2>
+        <p>Absents</p>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button id="btnClasses" class="action-btn">Classes</button>
+      <button id="btnPDF" class="action-btn">Generate PDF</button>
+      <button id="btnProfile" class="action-btn">Profile</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { logoutUser } from './js/firebase-auth.js';
+
+// If user is logged in, populate data
+const user = JSON.parse(sessionStorage.getItem("user"));
+if (user) {
+  document.getElementById("firstName").innerText = user.firstName;
+  document.getElementById("lastName").innerText = user.lastName;
+  document.getElementById("email").innerText = user.email;
+} else {
+  window.location.href = "login.html";
+}
+
+
+document.getElementById("logoutButton").addEventListener("click", logoutUser);
+
+  </script>
+    <script src="./js/scripts.js"></script>
+
+</body>
+</html>

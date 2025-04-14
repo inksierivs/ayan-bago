@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selfie Verification</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Fixed FontAwesome via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-green-50 min-h-screen flex flex-col">
+
+  <header class="bg-green-700 text-white p-4 flex items-center justify-between">
+    <h1 class="text-lg font-semibold">Selfie Verification</h1>
+  </header>
+
+  <div class="text-center text-sm text-green-900 font-semibold mt-2">Hi Student!</div>
+
+  <div class="flex justify-center mt-4 px-4">
+    <div class="w-64 h-64 bg-gray-100 rounded-md shadow-lg flex items-center justify-center overflow-hidden">
+      <video id="camera" autoplay playsinline class="w-full h-full object-cover rounded-md"></video>
+    </div>
+  </div>
+
+  <div class="mt-auto flex justify-center p-4 gap-4">
+    <button id="captureBtn" class="bg-green-700 text-white w-20 h-20 text-xl rounded-lg shadow-lg hover:bg-green-800 flex items-center justify-center">
+      <i class="fa-solid fa-camera"></i>
+    </button>
+  </div>
+
+  <canvas id="snapshotCanvas" width="640" height="480" class="hidden"></canvas>
+
+  <!-- ✅ Fixed: load correct JS module -->
+  <script type="module" src="js/face-recognition.js"></script>
+</body>
+</html>

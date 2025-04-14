@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="icon" type="image/png" href="pics/WYA-logo.png" />
+  <link rel="stylesheet" href="css/login.css">
+  </head>
+<body>
+
+  <img src="pics/WYA-logo.png" alt="WYA Logo" class="logo">
+
+  <div class="login-container">
+      <h2>Welcome!</h2>
+
+    <label for="email">Domain Email</label>
+    <input type="text" id="email" placeholder="Enter your email" />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password" />
+
+    <button id="login-button">Login</button>
+    <a href="signup.html">Create new account</a>
+  </div>
+
+  <script type="module">
+    import { loginUser } from './js/firebase-auth.js';
+
+    document.getElementById("login-button").addEventListener("click", loginUser);
+  </script>
+</body>
+</html>

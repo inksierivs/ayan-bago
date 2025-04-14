@@ -1,0 +1,114 @@
+/* Main Content */
+.main-container {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .class-section {
+    width: 100%;
+    max-width: 80%;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #118b50;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .search-container {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .search-input {
+    padding: 0.75rem;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 0.75rem;
+    border: 1px solid #118b50;
+    font-size: 1rem;
+  }
+  
+  .class-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .class-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .class-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .class-info {
+    flex-grow: 1;
+  }
+  
+  .class-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #118b50;
+  }
+  
+  .class-time,
+  .class-code {
+    font-size: 1rem;
+  }
+  
+  .remove-link {
+    color: #ef4444;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .remove-link:hover {
+    text-decoration: underline;
+  }
+  
+  .class-thumbnail {
+    background-color: #f0fdf4;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: #118b50;
+  }
+  
+  .class-thumbnail:hover {
+    background-color: #118b50;
+    color: white;
+  }
+  
+  .addbtn {
+    background-color: #118b50;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    height: 5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+
+  }
