@@ -26,12 +26,13 @@ const firebaseConfig = {
   appId: "1:326895130760:web:e7da3fa44c5a2f4467e73d",
   measurementId: "G-4R9KV6799T"
 };
-// firebase-auth.js
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const GOOGLE_DRIVE_CLIENT_ID = "80160515542-jhqpn34470pcuce5r6ohnvr74d06tcmv.apps.googleusercontent.com";
+console.log("Google Drive Client ID:", GOOGLE_DRIVE_CLIENT_ID);
 
 // Function to sign up new users
 async function signupUser(event) {
@@ -40,7 +41,6 @@ async function signupUser(event) {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
   const passwordConfirm = document.getElementById("password-confirm").value;
-
   const fname = document.getElementById("fname").value.trim();
   const lname = document.getElementById("lname").value.trim();
 
@@ -49,15 +49,12 @@ async function signupUser(event) {
     return;
   }
 
-  // ✅ Only allow @gordoncollege.edu.ph emails
   if (!email.endsWith("@gordoncollege.edu.ph")) {
     alert("You must use a @gordoncollege.edu.ph domain email to sign up.");
     return;
   }
 
-  // Determine role based on email
-  // Auto-assign role based on format
-  let role = "student"; // Default
+  let role = "student";
   const localPart = email.split("@")[0];
   if (isNaN(localPart)) {
     role = "teacher";
@@ -81,7 +78,6 @@ async function signupUser(event) {
   }
 }
 
-
 // Function to log in users
 async function loginUser(event) {
   event.preventDefault();
@@ -93,7 +89,6 @@ async function loginUser(event) {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // 🔥 Get user profile from Firestore
     const userDoc = await getDoc(doc(db, "users", user.uid));
 
     if (userDoc.exists()) {
@@ -110,12 +105,8 @@ async function loginUser(event) {
         block: userData.block || "update profile"
       };
 
-
-
-      // Save user session
       sessionStorage.setItem("user", JSON.stringify(sessionUser));
 
-      // ✅ Redirect based on role
       if (userData.role === "teacher") {
         window.location.href = "dashboard.html";
       } else if (userData.role === "student") {
@@ -132,7 +123,6 @@ async function loginUser(event) {
   }
 }
 
-
 // Logout function
 function logoutUser() {
   signOut(auth).then(() => {
@@ -143,7 +133,4 @@ function logoutUser() {
   });
 }
 
-
 export { signupUser, loginUser, logoutUser, db, auth, app };
-
-// Export functions for usage in HTML
