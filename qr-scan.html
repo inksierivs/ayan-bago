@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Scanner (Fixed Settings)</title>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+  <h2>Scan a QR Code</h2>
+  <div id="reader"></div>
+  <p id="result"></p>
+  <button id="scan-again">🔄 Scan Again</button>
+
+  <script>
+    const html5QrCode = new Html5Qrcode("reader");
+    let currentCamId = null;
+
+    const scanOptions = {
+      fps: 15,
+      qrbox: 300,
+      aspectRatio: 1.777,
+      videoConstraints: {
+        width: { ideal: 1280 },
+        height: { ideal: 720 },
+        facingMode: "environment"
+      }
+    };
+
+    Html5Qrcode.getCameras().then(devices => {
+      if (devices.length) {
+        const backCam = devices.find(cam => /back|rear/i.test(cam.label)) || devices[0];
+        currentCamId = backCam.id;
+
+        html5QrCode.start(
+          { deviceId: { exact: currentCamId } },
+          scanOptions,
+          decodedText => {
+            html5QrCode.stop();
+            document.getElementById("result").textContent = "✅ Scanned: " + decodedText;
+            document.getElementById("scan-again").style.display = "inline-block";
+          },
+          error => {
+            // ignore scan errors silently
+          }
+        );
+      }
+    }).catch(err => {
+      console.error("Camera error: ", err);
+    });
+
+    document.getElementById("scan-again").onclick = () => {
+      document.getElementById("result").textContent = "";
+      document.getElementById("scan-again").style.display = "none";
+
+      html5QrCode.start(
+        { deviceId: { exact: currentCamId } },
+        scanOptions,
+        decodedText => {
+          html5QrCode.stop();
+          document.getElementById("result").textContent = "✅ Scanned: " + decodedText;
+          document.getElementById("scan-again").style.display = "inline-block";
+        },
+        error => {
+          // ignore scan errors silently
+        }
+      );
+    };
+  </script>
+</body>
+</html>
