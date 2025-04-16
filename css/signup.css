@@ -1,0 +1,137 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-size: cover;
+    overflow: auto;
+  }
+  
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../pics/bg.png') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -1;
+  }
+  
+  .logo {
+    width: 50%;
+    max-width: 180px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+  }
+  
+  .login-container {
+    background: rgba(17, 139, 80, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .login-container label {
+    display: block;
+    text-align: left;
+    color: white;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .login-container input,
+  .login-container select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.25rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .login-container button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border: none;
+    background: white;
+    color: #118b50;
+    font-weight: bold;
+    border-radius: 15rem;
+    cursor: pointer;
+  }
+
+  .login-container a {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border: none;
+    background-image: linear-gradient(to right, #afff89, #00a274);
+    color: #118b50;
+    font-weight: bold;
+    border-radius: 15rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      width: 70%;
+      max-width: 150px;
+    }
+  
+    .login-container {
+      padding: 1.5rem;
+      max-width: 85%;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .login-container label {
+      font-size: 0.7rem;
+    }
+  
+    .login-container input,
+    .login-container select {
+      font-size: 0.9rem;
+      padding: 0.6rem;
+    }
+  
+    .login-container button {
+      padding: 0.6rem;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .login-container {
+      width: 30%;
+    }
+  }

@@ -1,0 +1,304 @@
+/* styles.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #f0fdf4;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../pics/bg.png') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -1;
+  }
+  
+  .header {
+    background-color: #118b50;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .header h1 {
+    text-align: center;
+    flex-grow: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 2rem;
+  }
+  
+  .menu-btn {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16rem;
+    height: 100%;
+    background-color: #118b50;
+    color: white;
+    padding: 1.25rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .sidebar button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .main {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    background-color: #118b50;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 75%;
+  }
+  
+  @media (min-width: 768px) {
+    .card-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+  }
+  
+  .card h2 {
+    color: #118b50;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .card p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 75%;
+  }
+  
+  .action-btn {
+    background-color: #118b50;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200rem;
+    height: 5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-btn:hover {
+    background-color: #0f7342;
+  }
+  
+  @media (max-width: 640px) {
+    .card {
+      max-width: 100%;
+      flex: 1 1 100%;
+    }
+  
+    .action-btn {
+      max-width: 100%;
+    }
+  
+    .header h1 {
+      margin-left: 0;
+    }
+  }
+  
+  .logout-btn {
+    background: #ef4444;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .logout-btn i {
+    font-size: 1.1rem;
+  }
+  
+  .logout-btn:hover {
+    background: #dc2626;
+  }
+  
+  .class-info-card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 700px;
+    margin-bottom: 2rem;
+  }
+  
+  /* Add green left border to info-header */
+  .info-header {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 1.5rem;
+    background-color: #fbf5e9;
+    padding: 1rem 2rem;
+    border-left: 6px solid #118b50;
+    border-radius: 0.5rem;
+  }
+  
+  .attendance-summary {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+  
+  .summary-box {
+    background-color: #fbf5e9;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-box h3 {
+    font-size: 1rem;
+    color: #118b50;
+    margin-bottom: 0.5rem;
+  }
+  
+  .summary-box p {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Responsive student table */
+  .student-table-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 1rem;
+    margin: auto;
+  }
+  
+  .student-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fbf5e9;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    min-width: 600px; /* ensures table doesn't break on small screens */
+  }
+  
+  .student-table th, .student-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 0.95rem;
+  }
+  
+  .student-table th {
+    background-color: #118b50;
+    color: white;
+  }
+  
+  .status.present {
+    color: #22c55e;
+    font-weight: bold;
+  }
+  
+  .status.absent {
+    color: #ef4444;
+    font-weight: bold;
+  }
+  
